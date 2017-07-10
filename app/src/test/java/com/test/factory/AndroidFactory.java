@@ -24,7 +24,6 @@ public class AndroidFactory {
         catch(Exception ex)
         {
                 AndroidFactory.setUpDriver();
-
         }
         return driver;
     }
@@ -32,14 +31,15 @@ public class AndroidFactory {
     private static void setUpDriver()
     {
         String path=System.getProperty("user.dir");
-        File apkPath=new File(path,"CNBC.apk");
-        System.out.println("Installing Application: "+apkPath.getAbsolutePath());
+        /*File apkPath=new File(path,"CNBC.apk");
+        System.out.println("Installing Application: "+apkPath.getAbsolutePath());*/
         DesiredCapabilities capabilities=new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Android Emulator");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
-        capabilities.setCapability(MobileCapabilityType.APP,apkPath);
+       //capabilities.setCapability(MobileCapabilityType.APP,apkPath);
         capabilities.setCapability("appPackage", "com.cnbc.client");
-        capabilities.setCapability("autoLaunch",false);
+        capabilities.setCapability("appActivity","com.cnbc.client.Activities.Home");
+        //capabilities.setCapability("autoLaunch",false);
         capabilities.setCapability("androidDeviceReadyTimeout","20");
         try {
             driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
