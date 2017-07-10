@@ -21,6 +21,8 @@ public class AndroidTests {
         AndroidDriver driver=AndroidFactory.getDriver();
         driver.launchApp();
         WebElement cnbcLogo=driver.findElementByClassName("android.widget.ImageView");
+        System.out.println("Is CNBC Logo Displayed: "+cnbcLogo.isDisplayed());
         Assert.assertTrue(cnbcLogo.isDisplayed(),"CNBC Logo Is Not Displayed");
+        System.out.println("TestCompleted to testDriverLaunch");
     }
 }

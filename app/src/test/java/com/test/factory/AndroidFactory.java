@@ -40,6 +40,7 @@ public class AndroidFactory {
         capabilities.setCapability(MobileCapabilityType.APP,apkPath);
         capabilities.setCapability("appPackage", "com.cnbc.client");
         capabilities.setCapability("autoLaunch",false);
+        capabilities.setCapability("androidDeviceReadyTimeout","20");
         try {
             driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
